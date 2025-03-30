@@ -1,10 +1,28 @@
-setInterval(digitalClock,1000);
+setInterval(DigitalClock,1000);
 
-function digitalClock() {
+const select = document.querySelector('select');
+select.addEventListener('change',DigitalClock);
+
+function DigitalClock() {
+    const time = new Date();
     const clock = document.getElementById('clock');
 
-    const time = new Date();
-    clock.textContent = `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`;
+    if (select.value == 1) {
+        const hour = time.getHours().toString().padStart(2, 0);
+        const minute = time.getMinutes().toString().padStart(2, 0);
+        const second = time.getSeconds().toString().padStart(2, 0);
+        clock.textContent = `${hour}:${minute}:${second}`;
+    }
+    else {
+        let hour = time.getHours();
+        const meridiem = hour >= 12 ? "PM" : "AM";
+        hour = hour % 12 || 12;
+        hour = hour.toString().padStart(2, 0);
+        const minute = time.getMinutes().toString().padStart(2, 0);
+        const second = time.getSeconds().toString().padStart(2, 0);
+
+        clock.textContent = `${hour}:${minute}:${second} ${meridiem}`;
+    }
 }
 
 function currentDate() {
