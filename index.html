@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('backgroundImage.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-clip: border-box;
+            background-position: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .clock-container {
+            text-align: center;
+        }
+        
+        .digital-clock {
+            backdrop-filter: blur(5px);
+            color: #00ffaa;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 170, 0.3);
+            font-size: 5rem;
+            font-weight: bold;
+            display: inline-block;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
+            border: 2px solid #00ffaa;
+        }
+        
+        .date-display {
+            backdrop-filter: blur(2px);
+            border-radius: 5px;
+            color: #ffffff;
+            font-weight: 900;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            opacity: 0.8;
+            color: transparent;
+            -webkit-text-stroke: 1px #00ffaa;
+            text-shadow: 0 0 10px #00ffaa;
+        }
+        
+        @media (max-width: 600px) {
+            .digital-clock {
+                font-size: 3rem;
+                padding: 20px 30px;
+            }
+            
+            .date-display {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body onload="currentDate()">
+    <div class="clock-container">
+        <div class="digital-clock" id="clock">00:00:00</div>
+        <div class="date-display" id="date"></div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
